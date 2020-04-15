@@ -1,0 +1,122 @@
+# depslib dependency file v1.0
+1586749709 source:d:\lap trinh\game_project\main.cpp
+	<cstdlib>
+	<ctime>
+	"monkey.h"
+	"game.h"
+	"Fall.h"
+	"font.h"
+
+1586700236 source:d:\lap trinh\game_project\sdl_utils.cpp
+	"SDL_utils.h"
+
+1586702148 d:\lap trinh\game_project\sdl_utils.h
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+
+1586092961 d:\lap trinh\game_project\painter.h
+	<SDL.h>
+	<SDL_image.h>
+	<SDL.h>
+	<SDL_image.h>
+
+1586180671 source:d:\lap trinh\game_project\painter.cpp
+	<iostream>
+	<cmath>
+	<string>
+	"painter.h"
+	<iostream>
+	<cmath>
+	<string>
+	"painter.h"
+
+1586183123 d:\lap trinh\game_project\ltexture.h
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<iostream>
+
+1586183123 source:d:\lap trinh\game_project\ltexture.cpp
+	"LTexture.h"
+	"LTexture.h"
+
+1586678752 source:d:\lap trinh\game_project\monkey.cpp
+	"monkey.h"
+
+1586678586 d:\lap trinh\game_project\monkey.h
+	"Common.h"
+
+1586682993 d:\lap trinh\game_project\start.h
+	"Common.h"
+
+1586704885 d:\lap trinh\game_project\common.h
+	"SDL_utils.h"
+
+1586786078 source:d:\lap trinh\game_project\common.cpp
+	"Common.h"
+
+1586749701 source:d:\lap trinh\game_project\fall.cpp
+	"Fall.h"
+
+1586787105 d:\lap trinh\game_project\game.h
+	"Common.h"
+	"font.h"
+
+1586749701 d:\lap trinh\game_project\fall.h
+	"Common.h"
+
+1586708304 d:\lap trinh\game_project\font.h
+	"Common.h"
+
+1586747393 source:d:\lap trinh\game_project\font.cpp
+	"font.h"
+
+1586786078 source:d:\lap trinh\game_project - copy\common.cpp
+	"Common.h"
+
+1586704885 d:\lap trinh\game_project - copy\common.h
+	"SDL_utils.h"
+
+1586702148 d:\lap trinh\game_project - copy\sdl_utils.h
+	<iostream>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+
+1586749701 source:d:\lap trinh\game_project - copy\fall.cpp
+	"Fall.h"
+
+1586749701 d:\lap trinh\game_project - copy\fall.h
+	"Common.h"
+
+1586747393 source:d:\lap trinh\game_project - copy\font.cpp
+	"font.h"
+
+1586708304 d:\lap trinh\game_project - copy\font.h
+	"Common.h"
+
+1586749709 source:d:\lap trinh\game_project - copy\main.cpp
+	<cstdlib>
+	<ctime>
+	"monkey.h"
+	"game.h"
+	"Fall.h"
+	"font.h"
+
+1586678586 d:\lap trinh\game_project - copy\monkey.h
+	"Common.h"
+
+1586787105 d:\lap trinh\game_project - copy\game.h
+	"Common.h"
+	"font.h"
+
+1586678752 source:d:\lap trinh\game_project - copy\monkey.cpp
+	"monkey.h"
+
+1586700236 source:d:\lap trinh\game_project - copy\sdl_utils.cpp
+	"SDL_utils.h"
+
