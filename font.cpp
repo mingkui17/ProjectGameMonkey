@@ -2,13 +2,13 @@
 
 Font::Font(SDL_Renderer* renderer, int size)
 {
-    color = {0, 0, 0}; //black color
+    color = {255, 255, 255}; //white color
     font = TTF_OpenFont("Sofia-Regular.otf", size);
 }
 
 Font::~Font()
 {
-    if(font)
+    if (font)
     {
 		TTF_CloseFont(font);
 		font = NULL;
