@@ -8,7 +8,7 @@ FallRandom::FallRandom()
     this -> y = 0;
     this -> w = width_type;
     this -> h = height_type;
-    y_ = 3;
+    y_ = speed;
 }
 
 int FallRandom::chooseType(SDL_Renderer* renderer)
@@ -17,6 +17,14 @@ int FallRandom::chooseType(SDL_Renderer* renderer)
     if (type == BANANA)
     {
         this -> type_image = loadTexture(renderer, type_image, "banana.bmp");
+    }
+    if (type == APPLE)
+    {
+        this -> type_image = loadTexture(renderer, type_image, "apple.png");
+    }
+    if (type == SHIT)
+    {
+        this -> type_image = loadTexture(renderer, type_image, "shit.png");
     }
     if (type == BOOM)
     {

@@ -39,6 +39,11 @@ void initSDL(SDL_Window* &window, SDL_Renderer* &renderer,
         cout << "SDL_ttf could not initialize! SDL_ttf Error: %s\n" << TTF_GetError() << endl;
 	}
 
+    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096) == -1)
+    {
+        cout << "SDL_mixer could not initialize! SDL_ttf Error: %s\n" << Mix_GetError();
+    }
+
     SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
     SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
 }
@@ -47,6 +52,7 @@ void quitSDL(SDL_Window* window, SDL_Renderer* renderer)
 {
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
+	Mix_CloseAudio();
 	TTF_Quit();
 	IMG_Quit();
 	SDL_Quit();

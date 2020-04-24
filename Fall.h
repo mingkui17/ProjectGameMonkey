@@ -5,13 +5,12 @@
 
 using namespace std;
 
-const int width_type = 61;
-const int height_type = 61;
-
 enum
 {
     BANANA,
     BOOM,
+    APPLE,
+    SHIT,
     TYPE
 };
 
@@ -31,7 +30,7 @@ public:
     void render(SDL_Renderer* renderer);
     void resetType();
     int chooseType(SDL_Renderer* renderer);
-    int getType() { return type; }
+    int getY() const { return y; }
 
     SDL_Rect Type_Rect();
 };

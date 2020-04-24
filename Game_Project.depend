@@ -1,29 +1,29 @@
 # depslib dependency file v1.0
-1586786078 source:d:\lap trinh\game\common.cpp
+1587571036 source:d:\lap trinh\game\common.cpp
 	"Common.h"
 
-1586704885 d:\lap trinh\game\common.h
+1587571036 d:\lap trinh\game\common.h
 	"SDL_utils.h"
 
-1586702148 d:\lap trinh\game\sdl_utils.h
+1587308759 d:\lap trinh\game\sdl_utils.h
 	<iostream>
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_ttf.h>
+	"SDL_mixer.h"
 
-1586749701 source:d:\lap trinh\game\fall.cpp
+1587221809 source:d:\lap trinh\game\fall.cpp
 	"Fall.h"
 
-1586749701 d:\lap trinh\game\fall.h
+1587570378 d:\lap trinh\game\fall.h
 	"Common.h"
 
-1587031341 source:d:\lap trinh\game\font.cpp
-	"font.h"
+1587570858 source:d:\lap trinh\game\font.cpp
 
-1586708304 d:\lap trinh\game\font.h
+1587570858 d:\lap trinh\game\font.h
 	"Common.h"
 
-1587046939 source:d:\lap trinh\game\main.cpp
+1587571910 source:d:\lap trinh\game\main.cpp
 	<cstdlib>
 	<ctime>
 	"monkey.h"
@@ -31,14 +31,13 @@
 	"Fall.h"
 	"font.h"
 
-1586678586 d:\lap trinh\game\monkey.h
+1587222147 d:\lap trinh\game\monkey.h
 	"Common.h"
 
-1587023821 d:\lap trinh\game\game.h
+1587570490 d:\lap trinh\game\game.h
 	"Common.h"
-	"font.h"
 
-1586700236 source:d:\lap trinh\game\sdl_utils.cpp
+1587200011 source:d:\lap trinh\game\sdl_utils.cpp
 	"SDL_utils.h"
 
 1587046330 source:d:\lap trinh\game\monkey.cpp

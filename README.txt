@@ -2,8 +2,7 @@
 
 Game: Fruits Monkey (Hứng hoa quả)
 Cách chơi: 
-+ Điều khiển khỉ di chuyển bằng chuột hoặc sử dụng phim mũi tên trái phải
-+ Ăn hoa quả để lấy điểm, trúng bom sẽ thua
-+ 1 ván game dài 3 phút (180s)
++ Di chuyển chuột sang trái phải để điều khiển khỉ ăn đồ, mỗi loại đồ tương ứng với số điểm khác nhau.
++ Bạn thua khi khỉ ăn phải boom hoặc để rơi đồ quá số lần cho phép
 
 

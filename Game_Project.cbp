@@ -37,8 +37,6 @@
 		<Unit filename="Fall.h" />
 		<Unit filename="SDL_utils.cpp" />
 		<Unit filename="SDL_utils.h" />
-		<Unit filename="font.cpp" />
-		<Unit filename="font.h" />
 		<Unit filename="game.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="monkey.cpp" />

@@ -32,7 +32,7 @@ void RenderImage(SDL_Renderer* renderer, SDL_Texture* texture, int x, int y, int
     SDL_RenderCopy(renderer, texture, NULL, &Rect);
 }
 
-bool CheckCollision(SDL_Rect fall_rand, SDL_Rect monkey)
+bool CheckCollision(const SDL_Rect& fall_rand, const SDL_Rect& monkey)
 {
     int left_a = fall_rand.x;
     int right_a = fall_rand.x + fall_rand.w;
@@ -75,3 +75,48 @@ bool CheckCollision(SDL_Rect fall_rand, SDL_Rect monkey)
     }
     return false;
 }
+
+Font::Font(SDL_Renderer* renderer, int size)
+{
+    color = {255, 255, 255}; //white color
+    font = TTF_OpenFont("Sofia-Regular.otf", size);
+}
+
+Font::~Font()
+{
+    if (font)
+    {
+		TTF_CloseFont(font);
+		font = NULL;
+	}
+    SDL_DestroyTexture(texture);
+}
+
+void Font::SetText(const string& text)
+{
+    text_ = text;
+}
+
+void Font::SetColor(const int& type)
+{
+    if (type == black) color = {0, 0, 0};
+    if (type == yellow) color = {255, 255, 0};
+}
+
+SDL_Texture* Font::loadText(SDL_Renderer* renderer)
+{
+    SDL_Surface* surface = NULL;
+	surface = TTF_RenderText_Solid(font, text_.c_str(), color);
+	texture = SDL_CreateTextureFromSurface(renderer, surface);
+	if (texture == NULL)
+        cout << "Unable to create texture from " << text_ << "\nSDL Error: " << SDL_GetError() << endl;
+	SDL_FreeSurface(surface);
+	return texture;
+}
+
+void Font::render(SDL_Renderer* renderer, int x, int y, int w, int h)
+{
+    texture = loadText(renderer);
+    RenderImage(renderer, texture, x, y, w, h);
+}
+

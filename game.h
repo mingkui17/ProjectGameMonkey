@@ -2,7 +2,6 @@
 #define GAME_H
 
 #include "Common.h"
-#include "font.h"
 
 class Game
 {
@@ -13,15 +12,17 @@ private:
     SDL_Texture* rules;
     SDL_Texture* background2;
     SDL_Texture* gameover;
+    SDL_Texture* replay;
 public:
     Game(SDL_Renderer* renderer)
     {
-        this -> background = loadTexture(renderer, background, "background.bmp");
+        this -> background = loadTexture(renderer, background, "background.png");
         this -> start = loadTexture(renderer, start, "start.png");
         this -> question = loadTexture(renderer, question, "question1.png");
         this -> rules = loadTexture(renderer, rules, "rules.png");
         this -> background2 = loadTexture(renderer, background2, "background2.1.bmp");
-        this -> gameover = loadTexture(renderer, background2, "gameover.bmp");
+        this -> gameover = loadTexture(renderer, background2, "gameover1.bmp");
+        this -> replay = loadTexture(renderer, replay, "replay.png");
     }
     void render_start(SDL_Renderer* renderer)
     {
@@ -41,6 +42,7 @@ public:
     void render_gameover(SDL_Renderer* renderer)
     {
         RenderImage(renderer, gameover, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        RenderImage(renderer, replay, 780, 565, 200, 60);
     }
     ~Game()
     {
@@ -50,6 +52,7 @@ public:
         SDL_DestroyTexture(rules);
         SDL_DestroyTexture(background2);
         SDL_DestroyTexture(gameover);
+        SDL_DestroyTexture(replay);
     }
 };
 

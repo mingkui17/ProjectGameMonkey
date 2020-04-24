@@ -5,14 +5,13 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+#include "SDL_mixer.h"
 
 using namespace std;
 
 const int SCREEN_WIDTH = 1000;
 const int SCREEN_HEIGHT = 650;
-const string WINDOW_TITLE = "Game Monkey";
-
-const int num_type = 10;
+const string WINDOW_TITLE = "Fruits Monkey - MinhKhue";
 
 void logSDLError(std::ostream& os, const std::string &msg, bool fatal = false);
 void initSDL(SDL_Window* &window, SDL_Renderer* &renderer,
