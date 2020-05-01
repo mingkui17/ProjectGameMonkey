@@ -18,31 +18,9 @@ const int width_monkey = 133;
 const int height_monkey = 151;
 const int step = 5;
 
-SDL_Texture* loadTexture(SDL_Renderer* renderer, SDL_Texture* newTexture, string path);
+SDL_Texture* loadTexture(SDL_Renderer* renderer, SDL_Texture* newTexture, const string& path);
+Mix_Chunk* loadMusic(const string& path);
 void RenderImage(SDL_Renderer* renderer, SDL_Texture* texture, int x, int y, int w, int h);
 bool CheckCollision(const SDL_Rect& fall_rand, const SDL_Rect& monkey);
-
-enum Color
-{
-    black,
-    yellow
-};
-
-class Font
-{
-private:
-    string text_;
-    SDL_Color color;
-    TTF_Font* font = NULL;
-	SDL_Texture* texture;
-public:
-    Font(SDL_Renderer* renderer, int size);
-    ~Font();
-
-    void SetText(const string& text);
-    void SetColor(const int& type);
-    void render(SDL_Renderer* renderer, int x, int y, int w, int h);
-    SDL_Texture* loadText(SDL_Renderer* renderer);
-};
 
 #endif // COMMON_H

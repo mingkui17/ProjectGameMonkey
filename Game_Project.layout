@@ -2,66 +2,66 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="Common.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="859" topLine="22" />
-		</Cursor>
-	</File>
-	<File name="Common.cpp" open="1" top="1" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="773" topLine="19" />
-		</Cursor>
-	</File>
-	<File name="monkey.cpp" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="565" topLine="23" />
-		</Cursor>
-	</File>
-	<File name="game.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="55" topLine="15" />
-		</Cursor>
-	</File>
-	<File name="monkey.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="405" topLine="8" />
-		</Cursor>
-	</File>
-	<File name="SDL_utils.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="296" topLine="6" />
-		</Cursor>
-	</File>
-	<File name="Fall.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Fall.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="470" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="SDL_utils.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="monkey.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2384" topLine="0" />
+			<Cursor1 position="405" topLine="8" />
 		</Cursor>
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="SDL_utils.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4332" topLine="145" />
+			<Cursor1 position="296" topLine="5" />
 		</Cursor>
 	</File>
-	<File name="Fall.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Common.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="109" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2931" topLine="108" />
+		</Cursor>
+	</File>
+	<File name="Common.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="134" topLine="69" />
+		</Cursor>
+	</File>
+	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="285" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Fall.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="281" topLine="0" />
 		</Cursor>
 	</File>
-	<Target name="Debug" top="Common.cpp">
+	<File name="SDL_utils.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="759" topLine="13" />
+		</Cursor>
+	</File>
+	<File name="monkey.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="565" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1226" topLine="0" />
+		</Cursor>
+	</File>
+	<Target name="Debug" top="main.cpp">
 		<File name="main.cpp" />
-		<File name="SDL_utils.h" />
-		<File name="SDL_utils.cpp" />
-		<File name="Common.h" />
 		<File name="Common.cpp" />
 		<File name="game.h" />
-		<File name="Fall.h" />
-		<File name="Fall.cpp" />
-		<File name="monkey.h" />
-		<File name="monkey.cpp" />
+		<File name="game.cpp" />
+		<File name="Common.h" />
 	</Target>
 </CodeBlocks_layout_file>

@@ -2,7 +2,7 @@
 
 using namespace std;
 
-SDL_Texture* loadTexture(SDL_Renderer* renderer, SDL_Texture* newTexture, string path)
+SDL_Texture* loadTexture(SDL_Renderer* renderer, SDL_Texture* newTexture, const string& path)
 {
     SDL_Surface* loadedSurface =  IMG_Load(path.c_str());
     if(loadedSurface == NULL)
@@ -20,6 +20,14 @@ SDL_Texture* loadTexture(SDL_Renderer* renderer, SDL_Texture* newTexture, string
         SDL_FreeSurface( loadedSurface );
     }
     return newTexture;
+}
+
+Mix_Chunk* loadMusic(const string& path)
+{
+    Mix_Chunk* new_music = Mix_LoadWAV(path.c_str());
+    if (new_music == NULL)
+        cout << "Error Music: %s \n" << Mix_GetError();
+    return new_music;
 }
 
 void RenderImage(SDL_Renderer* renderer, SDL_Texture* texture, int x, int y, int w, int h)
@@ -74,49 +82,5 @@ bool CheckCollision(const SDL_Rect& fall_rand, const SDL_Rect& monkey)
         }
     }
     return false;
-}
-
-Font::Font(SDL_Renderer* renderer, int size)
-{
-    color = {255, 255, 255}; //white color
-    font = TTF_OpenFont("Sofia-Regular.otf", size);
-}
-
-Font::~Font()
-{
-    if (font)
-    {
-		TTF_CloseFont(font);
-		font = NULL;
-	}
-    SDL_DestroyTexture(texture);
-}
-
-void Font::SetText(const string& text)
-{
-    text_ = text;
-}
-
-void Font::SetColor(const int& type)
-{
-    if (type == black) color = {0, 0, 0};
-    if (type == yellow) color = {255, 255, 0};
-}
-
-SDL_Texture* Font::loadText(SDL_Renderer* renderer)
-{
-    SDL_Surface* surface = NULL;
-	surface = TTF_RenderText_Solid(font, text_.c_str(), color);
-	texture = SDL_CreateTextureFromSurface(renderer, surface);
-	if (texture == NULL)
-        cout << "Unable to create texture from " << text_ << "\nSDL Error: " << SDL_GetError() << endl;
-	SDL_FreeSurface(surface);
-	return texture;
-}
-
-void Font::render(SDL_Renderer* renderer, int x, int y, int w, int h)
-{
-    texture = loadText(renderer);
-    RenderImage(renderer, texture, x, y, w, h);
 }
 

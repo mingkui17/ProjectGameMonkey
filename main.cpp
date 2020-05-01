@@ -3,7 +3,6 @@
 #include "monkey.h"
 #include "game.h"
 #include "Fall.h"
-#include "font.h"
 
 using namespace std;
 
@@ -15,7 +14,6 @@ bool CheckPlayAgain(SDL_Event e);
 
 int main(int argc, char* argv[])
 {
-    //khoi dong SDL
     srand(time(0));
     SDL_Window* window;
     SDL_Renderer* renderer;
@@ -39,22 +37,12 @@ int main(int argc, char* argv[])
 
 int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
 {
-    Mix_HaltChannel(-1); //tắt nhạc
     Game game(renderer);
     MonkeyX monkey(renderer);
+    Music music;
 
-    Mix_Chunk* m_start = Mix_LoadWAV("backgr.ogg");
-    Mix_Chunk* m_bk = Mix_LoadWAV("play.ogg");
-    Mix_Chunk* m_eat = Mix_LoadWAV("eat.wav");
-    Mix_Chunk* m_go = Mix_LoadWAV("GameOver.wav");
-    if (m_start == NULL || m_eat == NULL || m_bk == NULL || m_go == NULL)
-    {
-        cout << "Error Music: %s \n" << Mix_GetError();
-    }
-
-    //draw background before play
     bool play = false;
-    Mix_PlayChannel(-1, m_start, -1);
+    music.PlayStart();
     while (true)
     {
         while (SDL_PollEvent(&e)!= 0)
@@ -82,7 +70,6 @@ int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
         }
     }
 
-    //đọc hướng dẫn cách chơi
     while (play == false)
     {
         while (SDL_PollEvent(&e)!= 0)
@@ -102,20 +89,19 @@ int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
     }
     Mix_HaltChannel(-1);
 
-    //tạo type ngẫu nhiên
     FallRandom* falls = new FallRandom[num_type];
     int list_type[num_type];
     for (int i=0;i<num_type;i++)
     {
         FallRandom* fall_rand = (falls + i);
-        if (fall_rand) //kiểm tra con trỏ có NULL hay ko
+        if (fall_rand)
         {
             list_type[i] = fall_rand->chooseType(renderer);
             fall_rand->resetType();
         } else cout << "Fail in initialize fall_rand \n";
     }
 
-    Mix_PlayChannel(-1, m_bk, -1);
+    music.PlayGame();
 
     //main loop
     int score = 0;
@@ -142,21 +128,19 @@ int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
                 bool check_col = CheckCollision(fall_rand->Type_Rect(), monkey.Monkey_Rect());
                 if (check_col)
                 {
+                    music.PlayEat();
                     if (list_type[i] == BANANA)
                     {
-                        Mix_PlayChannel(-1, m_eat, 0);
                         score += 3;
                         fall_rand->resetType();
                     }
                     if (list_type[i] == APPLE)
                     {
-                        Mix_PlayChannel(-1, m_eat, 0);
                         score += 1;
                         fall_rand->resetType();
                     }
                     if (list_type[i] == SHIT)
                     {
-                        Mix_PlayChannel(-1, m_eat, 0);
                         if (score >= 2) score -= 2;
                             else score = 0;
                         fall_rand->resetType();
@@ -176,21 +160,18 @@ int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
                     }
             } else cout << "Fail in initialize fall_rand in main loop\n";
         }
-
         RenderNumberFall(renderer, number_fall);
-        RenderScore(renderer, score); //ghi điểm
+        RenderScore(renderer, score);
 
         SDL_RenderPresent(renderer);
-
     }
-
-    //gameover và báo điểm
     Mix_HaltChannel(-1); //tắt nhạc
-    Mix_PlayChannel(-1, m_go, 0);
+    music.PlayGameOver();
     game.render_gameover(renderer);
     RenderGameOver(renderer, score);
 
     SDL_RenderPresent(renderer);
+    SDL_Delay(2500);
 
     delete [] falls;
     return 1;

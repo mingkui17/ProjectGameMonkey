@@ -14,46 +14,53 @@ private:
     SDL_Texture* gameover;
     SDL_Texture* replay;
 public:
-    Game(SDL_Renderer* renderer)
-    {
-        this -> background = loadTexture(renderer, background, "background.png");
-        this -> start = loadTexture(renderer, start, "start.png");
-        this -> question = loadTexture(renderer, question, "question1.png");
-        this -> rules = loadTexture(renderer, rules, "rules.png");
-        this -> background2 = loadTexture(renderer, background2, "background2.1.bmp");
-        this -> gameover = loadTexture(renderer, background2, "gameover1.bmp");
-        this -> replay = loadTexture(renderer, replay, "replay.png");
-    }
-    void render_start(SDL_Renderer* renderer)
-    {
-        SDL_RenderCopy(renderer, background, NULL, NULL);
-        RenderImage(renderer, start, 780, 565, 200, 70);
-        RenderImage(renderer, question, 930, 10, 60, 60);
-    }
-    void render_rules(SDL_Renderer* renderer)
-    {
-        SDL_RenderCopy(renderer, rules, NULL, NULL);
-        RenderImage(renderer, start, 780, 565, 200, 70);
-    }
-    void render_bgg(SDL_Renderer* renderer)
-    {
-        RenderImage(renderer, background2, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-    }
-    void render_gameover(SDL_Renderer* renderer)
-    {
-        RenderImage(renderer, gameover, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-        RenderImage(renderer, replay, 780, 565, 200, 60);
-    }
-    ~Game()
-    {
-        SDL_DestroyTexture(background);
-        SDL_DestroyTexture(start);
-        SDL_DestroyTexture(question);
-        SDL_DestroyTexture(rules);
-        SDL_DestroyTexture(background2);
-        SDL_DestroyTexture(gameover);
-        SDL_DestroyTexture(replay);
-    }
+    Game(SDL_Renderer* renderer);
+    ~Game();
+
+    void render_start(SDL_Renderer* renderer);
+    void render_rules(SDL_Renderer* renderer);
+    void render_bgg(SDL_Renderer* renderer);
+    void render_gameover(SDL_Renderer* renderer);
 };
 
-#endif // GMAE_H
+enum Color
+{
+    black,
+    yellow
+};
+
+class Font
+{
+private:
+    string text_;
+    SDL_Color color;
+    TTF_Font* font = NULL;
+	SDL_Texture* texture;
+public:
+    Font(SDL_Renderer* renderer, const int& size);
+    ~Font();
+
+    void SetText(const string& text);
+    void SetColor(const int& type);
+    void render(SDL_Renderer* renderer, int x, int y, int w, int h);
+    SDL_Texture* loadText(SDL_Renderer* renderer);
+};
+
+class Music
+{
+private:
+    Mix_Chunk* m_start;
+    Mix_Chunk* m_bk;
+    Mix_Chunk* m_eat;
+    Mix_Chunk* m_go;
+public:
+    Music();
+    ~Music();
+
+    void PlayStart();
+    void PlayGame();
+    void PlayEat();
+    void PlayGameOver();
+};
+
+#endif

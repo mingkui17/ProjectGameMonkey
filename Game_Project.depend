@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1587571036 source:d:\lap trinh\game\common.cpp
+1588325601 source:d:\lap trinh\game\common.cpp
 	"Common.h"
 
-1587571036 d:\lap trinh\game\common.h
+1588325760 d:\lap trinh\game\common.h
 	"SDL_utils.h"
 
 1587308759 d:\lap trinh\game\sdl_utils.h
@@ -23,18 +23,17 @@
 1587570858 d:\lap trinh\game\font.h
 	"Common.h"
 
-1587571910 source:d:\lap trinh\game\main.cpp
+1588325674 source:d:\lap trinh\game\main.cpp
 	<cstdlib>
 	<ctime>
 	"monkey.h"
 	"game.h"
 	"Fall.h"
-	"font.h"
 
 1587222147 d:\lap trinh\game\monkey.h
 	"Common.h"
 
-1587570490 d:\lap trinh\game\game.h
+1588324555 d:\lap trinh\game\game.h
 	"Common.h"
 
 1587200011 source:d:\lap trinh\game\sdl_utils.cpp
@@ -42,4 +41,7 @@
 
 1587046330 source:d:\lap trinh\game\monkey.cpp
 	"monkey.h"
+
+1588324503 source:d:\lap trinh\game\game.cpp
+	"game.h"
 
