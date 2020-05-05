@@ -26,7 +26,7 @@ public:
     FallRandom();
     ~FallRandom();
 
-    void HandleMove();
+    void HandleMove(const int& y_);
     void render(SDL_Renderer* renderer);
     void resetType();
     int chooseType(SDL_Renderer* renderer);

@@ -14,7 +14,6 @@ public:
     ~MonkeyX();
 
     void HandleInputAction(SDL_Event &e);
-    void handleMove();
     void render(SDL_Renderer* renderer);
 
     SDL_Rect Monkey_Rect()

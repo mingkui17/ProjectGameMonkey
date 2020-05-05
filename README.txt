@@ -1,4 +1,4 @@
-Đây là repo mới (làm lại để giảm dung lượng git). Repo cũ https://github.com/minhkhue196/Project_Game (có 6 commit ở đó) 
+Đây là repo mới (làm lại để giảm dung lượng git). Repo cũ https://github.com/minhkhue196/Project_Game
 
 Game: Fruits Monkey (Hứng hoa quả)
 Cách chơi: 

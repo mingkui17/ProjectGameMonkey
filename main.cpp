@@ -41,7 +41,9 @@ int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
     MonkeyX monkey(renderer);
     Music music;
 
+    int x, y, speed;
     bool play = false;
+
     music.PlayStart();
     while (true)
     {
@@ -51,7 +53,6 @@ int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
         }
         game.render_start(renderer);
         SDL_RenderPresent(renderer);
-        int x, y;
         SDL_GetMouseState(&x, &y);
         if (e.type == SDL_MOUSEBUTTONDOWN)
         {
@@ -78,7 +79,6 @@ int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
         }
         game.render_rules(renderer);
         SDL_RenderPresent(renderer);
-        int x, y;
         SDL_GetMouseState(&x, &y);
         if (e.type == SDL_MOUSEBUTTONDOWN)
             if (e.button.button == SDL_BUTTON_LEFT)
@@ -87,13 +87,46 @@ int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
                     play = true;
                 }
     }
+
+    while (true)
+    {
+        while (SDL_PollEvent(&e)!= 0)
+        {
+            if (e.type == SDL_QUIT) return 0;
+        }
+        game.render_level(renderer);
+        SDL_RenderPresent(renderer);
+        SDL_GetMouseState(&x, &y);
+        if (e.type == SDL_MOUSEBUTTONDOWN)
+        {
+            if (e.button.button == SDL_BUTTON_LEFT)
+            {
+                if (x>=185 && x<=368 && y>=298 && y<=389)
+                {
+                    speed = 5;
+                    break;
+                }
+                if (x>=415 && x<=598 && y>=298 && y<=389)
+                {
+                    speed = 10;
+                    break;
+                }
+                if (x>=640 && x<= 823 && y>=298 && y<=389)
+                {
+                    speed = 13;
+                    break;
+                }
+            }
+        }
+    }
+
     Mix_HaltChannel(-1);
 
     FallRandom* falls = new FallRandom[num_type];
     int list_type[num_type];
     for (int i=0;i<num_type;i++)
     {
-        FallRandom* fall_rand = (falls + i);
+        FallRandom* fall_rand = (falls + i); //tham khảo ở phattrienphanmem123az.com
         if (fall_rand)
         {
             list_type[i] = fall_rand->chooseType(renderer);
@@ -111,19 +144,18 @@ int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
         while (SDL_PollEvent(&e) != 0)
         {
             if (e.type == SDL_QUIT) return 0;
-            monkey.HandleInputAction(e);
         }
         game.render_bgg(renderer);
-        monkey.handleMove();
+        monkey.HandleInputAction(e);
         monkey.render(renderer);
 
         for (int i=0;i<num_type;i++)
         {
-            FallRandom* fall_rand = (falls + i);
+            FallRandom* fall_rand = (falls + i); //tham khảo ở phattrienphanmem123az.com
             if (fall_rand)
             {
                 fall_rand->render(renderer);
-                fall_rand->HandleMove();
+                fall_rand->HandleMove(speed);
 
                 bool check_col = CheckCollision(fall_rand->Type_Rect(), monkey.Monkey_Rect());
                 if (check_col)
@@ -165,7 +197,7 @@ int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
 
         SDL_RenderPresent(renderer);
     }
-    Mix_HaltChannel(-1); //tắt nhạc
+    Mix_HaltChannel(-1);
     music.PlayGameOver();
     game.render_gameover(renderer);
     RenderGameOver(renderer, score);
@@ -181,7 +213,7 @@ bool CheckPlayAgain(SDL_Event e)
 {
     while (true)
     {
-        while (SDL_PollEvent(&e)!= 0)
+        while (SDL_PollEvent(&e) != 0)
         {
             if (e.type == SDL_QUIT) return false;
         }
@@ -199,7 +231,7 @@ bool CheckPlayAgain(SDL_Event e)
 void RenderGameOver(SDL_Renderer* renderer, const int& score)
 {
     string score_s = to_string(score);
-    Font overgame(renderer, 50);
+    Font overgame(50);
     overgame.SetColor(yellow);
     overgame.SetText(score_s);
     overgame.render(renderer, 540, 300, 120, 110);
@@ -207,7 +239,7 @@ void RenderGameOver(SDL_Renderer* renderer, const int& score)
 
 void RenderScore(SDL_Renderer* renderer, const int& score)
 {
-    Font font_score(renderer, 60);
+    Font font_score(60);
     string score_s = to_string(score);
     font_score.SetText(score_s);
     font_score.render(renderer, 830, 57, 80, 90);
@@ -215,7 +247,7 @@ void RenderScore(SDL_Renderer* renderer, const int& score)
 
 void RenderNumberFall(SDL_Renderer* renderer, const int& number_fall)
 {
-    Font font_skip(renderer, 50);
+    Font font_skip(50);
     string s = to_string(number_fall);
     string ss = "Number of skips: " + s;
     font_skip.SetText(ss);

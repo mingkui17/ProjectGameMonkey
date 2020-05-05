@@ -8,7 +8,6 @@ FallRandom::FallRandom()
     this -> y = 0;
     this -> w = width_type;
     this -> h = height_type;
-    y_ = speed;
 }
 
 int FallRandom::chooseType(SDL_Renderer* renderer)
@@ -16,19 +15,19 @@ int FallRandom::chooseType(SDL_Renderer* renderer)
     int type = rand() % TYPE;
     if (type == BANANA)
     {
-        this -> type_image = loadTexture(renderer, type_image, "banana.bmp");
+        this -> type_image = loadTexture(renderer, type_image, "Picture/banana.bmp");
     }
     if (type == APPLE)
     {
-        this -> type_image = loadTexture(renderer, type_image, "apple.png");
+        this -> type_image = loadTexture(renderer, type_image, "Picture/apple.png");
     }
     if (type == SHIT)
     {
-        this -> type_image = loadTexture(renderer, type_image, "shit.png");
+        this -> type_image = loadTexture(renderer, type_image, "Picture/shit.png");
     }
     if (type == BOOM)
     {
-        this -> type_image = loadTexture(renderer, type_image, "boom1.bmp");
+        this -> type_image = loadTexture(renderer, type_image, "Picture/boom1.bmp");
     }
     return type;
 }
@@ -38,7 +37,7 @@ FallRandom::~FallRandom()
     SDL_DestroyTexture(type_image);
 }
 
-void FallRandom::HandleMove()
+void FallRandom::HandleMove(const int& y_)
 {
     y += y_;
     if (y > SCREEN_HEIGHT)

@@ -3,31 +3,30 @@
 //Game
 Game::Game(SDL_Renderer* renderer)
 {
-    this -> background = loadTexture(renderer, background, "background.png");
-    this -> start = loadTexture(renderer, start, "start.png");
-    this -> question = loadTexture(renderer, question, "question1.png");
-    this -> rules = loadTexture(renderer, rules, "rules.png");
-    this -> background2 = loadTexture(renderer, background2, "background2.1.bmp");
-    this -> gameover = loadTexture(renderer, background2, "gameover1.bmp");
-    this -> replay = loadTexture(renderer, replay, "replay.png");
+    this -> background = loadTexture(renderer, background, "Picture/background.png");
+    this -> start = loadTexture(renderer, start, "Picture/start.png");
+    this -> rules = loadTexture(renderer, rules, "Picture/rules.png");
+    this -> background2 = loadTexture(renderer, background2, "Picture/background2.1.bmp");
+    this -> gameover = loadTexture(renderer, background2, "Picture/gameover1.bmp");
+    this -> replay = loadTexture(renderer, replay, "Picture/replay.png");
+    this -> level = loadTexture(renderer, level, "Picture/level.png");
 }
 
 Game::~Game()
 {
     SDL_DestroyTexture(background);
     SDL_DestroyTexture(start);
-    SDL_DestroyTexture(question);
     SDL_DestroyTexture(rules);
     SDL_DestroyTexture(background2);
     SDL_DestroyTexture(gameover);
     SDL_DestroyTexture(replay);
+    SDL_DestroyTexture(level);
 }
 
 void Game::render_start(SDL_Renderer* renderer)
 {
     SDL_RenderCopy(renderer, background, NULL, NULL);
     RenderImage(renderer, start, 780, 565, 200, 70);
-    RenderImage(renderer, question, 930, 10, 60, 60);
 }
 
 void Game::render_rules(SDL_Renderer* renderer)
@@ -47,8 +46,13 @@ void Game::render_gameover(SDL_Renderer* renderer)
     RenderImage(renderer, replay, 780, 565, 200, 60);
 }
 
+void Game::render_level(SDL_Renderer* renderer)
+{
+    RenderImage(renderer, level, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+}
+
 //Font
-Font::Font(SDL_Renderer* renderer, const int& size)
+Font::Font(const int& size)
 {
     color = {255, 255, 255}; //white color
     font = TTF_OpenFont("Sofia-Regular.otf", size);
@@ -95,10 +99,10 @@ void Font::render(SDL_Renderer* renderer, int x, int y, int w, int h)
 //Music
 Music::Music()
 {
-    this->m_start = loadMusic("backgr.ogg");
-    this->m_bk = loadMusic("play.ogg");
-    this->m_eat = loadMusic("eat.wav");
-    this->m_go = loadMusic("GameOver.wav");
+    this->m_start = loadMusic("Music/backgr.ogg");
+    this->m_bk = loadMusic("Music/play.ogg");
+    this->m_eat = loadMusic("Music/eat.wav");
+    this->m_go = loadMusic("Music/GameOver.wav");
 }
 
 Music::~Music()

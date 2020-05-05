@@ -8,11 +8,11 @@ class Game
 private:
     SDL_Texture* background;
     SDL_Texture* start;
-    SDL_Texture* question;
     SDL_Texture* rules;
     SDL_Texture* background2;
     SDL_Texture* gameover;
     SDL_Texture* replay;
+    SDL_Texture* level;
 public:
     Game(SDL_Renderer* renderer);
     ~Game();
@@ -21,6 +21,7 @@ public:
     void render_rules(SDL_Renderer* renderer);
     void render_bgg(SDL_Renderer* renderer);
     void render_gameover(SDL_Renderer* renderer);
+    void render_level(SDL_Renderer* renderer);
 };
 
 enum Color
@@ -37,7 +38,7 @@ private:
     TTF_Font* font = NULL;
 	SDL_Texture* texture;
 public:
-    Font(SDL_Renderer* renderer, const int& size);
+    Font(const int& size);
     ~Font();
 
     void SetText(const string& text);

@@ -40,6 +40,7 @@ void RenderImage(SDL_Renderer* renderer, SDL_Texture* texture, int x, int y, int
     SDL_RenderCopy(renderer, texture, NULL, &Rect);
 }
 
+//hàm CheckCollision tham khảo ở phattrienphanmem123az.com
 bool CheckCollision(const SDL_Rect& fall_rand, const SDL_Rect& monkey)
 {
     int left_a = fall_rand.x;
