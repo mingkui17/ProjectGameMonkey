@@ -7,7 +7,6 @@ MonkeyX::MonkeyX (SDL_Renderer* renderer)
     this -> y = SCREEN_HEIGHT - height_monkey - 3 ;
     this -> w = width_monkey;
     this -> h = height_monkey;
-    x_ = 0;
 }
 
 MonkeyX::~MonkeyX()
@@ -22,13 +21,9 @@ void MonkeyX::HandleInputAction(SDL_Event &e)
     if (x_mouse < width_monkey/2) x = 0;
         else if (x_mouse > (SCREEN_WIDTH - width_monkey/2)) x = SCREEN_WIDTH - width_monkey;
             else x = x_mouse - width_monkey/2;
-
 }
 
 void MonkeyX::render(SDL_Renderer* renderer)
 {
     RenderImage(renderer, monkey_, x, y, w, h);
 }
-
-
-

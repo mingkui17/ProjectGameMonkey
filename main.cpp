@@ -143,7 +143,11 @@ int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
     {
         while (SDL_PollEvent(&e) != 0)
         {
-            if (e.type == SDL_QUIT) return 0;
+            if (e.type == SDL_QUIT)
+            {
+                delete falls;
+                return 0;
+            }
         }
         game.render_bgg(renderer);
         monkey.HandleInputAction(e);

@@ -8,7 +8,6 @@ class MonkeyX
 private:
     SDL_Texture* monkey_;
     int x, y, w, h;
-    int x_;
 public:
     MonkeyX(SDL_Renderer* renderer);
     ~MonkeyX();
