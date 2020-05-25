@@ -7,6 +7,11 @@ using namespace std;
 
 const int num_type = 20;
 const int max_number_fall = 100;
+const int easy = 5;
+const int medium = 10;
+const int hard = 13;
+const int max_dem = 10;
+const int insert_number_fall = 15;
 
 //Fall.h
 const int width_type = 61;

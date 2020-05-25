@@ -103,17 +103,17 @@ int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
             {
                 if (x>=185 && x<=368 && y>=298 && y<=389)
                 {
-                    speed = 5;
+                    speed = easy;
                     break;
                 }
                 if (x>=415 && x<=598 && y>=298 && y<=389)
                 {
-                    speed = 10;
+                    speed = medium;
                     break;
                 }
                 if (x>=640 && x<= 823 && y>=298 && y<=389)
                 {
-                    speed = 13;
+                    speed = hard;
                     break;
                 }
             }
@@ -129,7 +129,7 @@ int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
         FallRandom* fall_rand = (falls + i); //tham khảo ở phattrienphanmem123az.com
         if (fall_rand)
         {
-            list_type[i] = fall_rand->chooseType(renderer);
+            list_type[i] = fall_rand->chooseType(renderer, speed, i);
             fall_rand->resetType();
         } else cout << "Fail in initialize fall_rand \n";
     }
@@ -138,6 +138,7 @@ int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
 
     //main loop
     int score = 0;
+    int dem = 0;
     int number_fall = max_number_fall;
     while (play)
     {
@@ -145,7 +146,7 @@ int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
         {
             if (e.type == SDL_QUIT)
             {
-                delete falls;
+                delete [] falls;
                 return 0;
             }
         }
@@ -167,16 +168,19 @@ int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
                     music.PlayEat();
                     if (list_type[i] == BANANA)
                     {
+                        dem++;
                         score += 3;
                         fall_rand->resetType();
                     }
                     if (list_type[i] == APPLE)
                     {
+                        dem++;
                         score += 1;
                         fall_rand->resetType();
                     }
                     if (list_type[i] == SHIT)
                     {
+                        dem = 0;
                         if (score >= 2) score -= 2;
                             else score = 0;
                         fall_rand->resetType();
@@ -194,6 +198,12 @@ int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
                             }
                         if (number_fall == 0) play = false;
                     }
+
+                if (dem == max_dem)
+                {
+                    dem = 0;
+                    number_fall += insert_number_fall;
+                }
             } else cout << "Fail in initialize fall_rand in main loop\n";
         }
         RenderNumberFall(renderer, number_fall);
@@ -207,7 +217,7 @@ int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
     RenderGameOver(renderer, score);
 
     SDL_RenderPresent(renderer);
-    SDL_Delay(2500);
+    SDL_Delay(2000);
 
     delete [] falls;
     return 1;

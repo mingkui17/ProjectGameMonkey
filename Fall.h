@@ -14,6 +14,7 @@ enum
     TYPE
 };
 
+
 class FallRandom
 {
 private:
@@ -29,7 +30,7 @@ public:
     void HandleMove(const int& y_);
     void render(SDL_Renderer* renderer);
     void resetType();
-    int chooseType(SDL_Renderer* renderer);
+    int chooseType(SDL_Renderer* renderer, const int& speed, const int& i);
     int getY() const { return y; }
 
     SDL_Rect Type_Rect();

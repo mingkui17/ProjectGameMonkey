@@ -2,7 +2,7 @@
 1588672485 source:d:\lap trinh\game\common.cpp
 	"Common.h"
 
-1588692216 d:\lap trinh\game\common.h
+1590420756 d:\lap trinh\game\common.h
 	"SDL_utils.h"
 
 1587308759 d:\lap trinh\game\sdl_utils.h
@@ -12,10 +12,10 @@
 	<SDL_ttf.h>
 	"SDL_mixer.h"
 
-1588688244 source:d:\lap trinh\game\fall.cpp
+1590420031 source:d:\lap trinh\game\fall.cpp
 	"Fall.h"
 
-1589209660 d:\lap trinh\game\fall.h
+1590420756 d:\lap trinh\game\fall.h
 	"Common.h"
 
 1587570858 source:d:\lap trinh\game\font.cpp
@@ -23,7 +23,7 @@
 1587570858 d:\lap trinh\game\font.h
 	"Common.h"
 
-1589255842 source:d:\lap trinh\game\main.cpp
+1590422000 source:d:\lap trinh\game\main.cpp
 	<cstdlib>
 	<ctime>
 	"monkey.h"
