@@ -23,7 +23,7 @@
 1587570858 d:\lap trinh\game\font.h
 	"Common.h"
 
-1590422000 source:d:\lap trinh\game\main.cpp
+1590455747 source:d:\lap trinh\game\main.cpp
 	<cstdlib>
 	<ctime>
 	"monkey.h"

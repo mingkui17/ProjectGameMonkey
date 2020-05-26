@@ -8,7 +8,7 @@ using namespace std;
 
 void RenderGameOver(SDL_Renderer* renderer, const int& score);
 void RenderScore(SDL_Renderer* renderer, const int& score);
-void RenderNumberFall(SDL_Renderer* renderer, const int& number_fall);
+void RenderNumberFall(SDL_Renderer* renderer, const int& number_fall, const int& dem);
 int PlayAgain(SDL_Renderer* renderer, SDL_Event e);
 bool CheckPlayAgain(SDL_Event e);
 
@@ -206,7 +206,7 @@ int PlayAgain(SDL_Renderer* renderer, SDL_Event e)
                 }
             } else cout << "Fail in initialize fall_rand in main loop\n";
         }
-        RenderNumberFall(renderer, number_fall);
+        RenderNumberFall(renderer, number_fall, dem);
         RenderScore(renderer, score);
 
         SDL_RenderPresent(renderer);
@@ -259,12 +259,18 @@ void RenderScore(SDL_Renderer* renderer, const int& score)
     font_score.render(renderer, 830, 57, 80, 90);
 }
 
-void RenderNumberFall(SDL_Renderer* renderer, const int& number_fall)
+void RenderNumberFall(SDL_Renderer* renderer, const int& number_fall, const int& dem)
 {
     Font font_skip(50);
     string s = to_string(number_fall);
     string ss = "Number of skips: " + s;
     font_skip.SetText(ss);
-    font_skip.render(renderer, 10, 2, 200, 40);
+    font_skip.render(renderer, 10, 2, 250, 50);
+
+    Font font_dem(50);
+    string dem_s = to_string(dem);
+    string dem_ss = "Fruits: " + dem_s + "/10";
+    font_dem.SetText(dem_ss);
+    font_dem.render(renderer, 10, 60, 180, 50);
 }
 
