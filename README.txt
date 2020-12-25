@@ -1,4 +1,5 @@
-Đây là repo mới (làm lại để giảm dung lượng git). Repo cũ https://github.com/minhkhue196/Project_Game
+Made by Phạm Thị Minh Khuê (CN8_KHMT_UET)
+_Project môn LTNC_
 
 Game: Fruits Monkey (Hứng hoa quả)
     Cách chơi: 
