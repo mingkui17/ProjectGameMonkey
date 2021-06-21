@@ -1,5 +1,5 @@
 Made by Phạm Thị Minh Khuê (CN8_KHMT_UET)
-_Project môn LTNC_
+_Project môn LTNC_Game + Đồ họa SDL
 
 Game: Fruits Monkey (Hứng hoa quả)
     Cách chơi: 
@@ -8,7 +8,5 @@ Game: Fruits Monkey (Hứng hoa quả)
       + Ăn hoa quả liên tiếp 10 lần sẽ được cộng thêm số lượt bỏ qua.
 
 Nguồn tham khảo code:
-    Slide bài giảng
-    Lazyfoo
     https://phattrienphanmem123az.com/lap-trinh-game-cpp
 
